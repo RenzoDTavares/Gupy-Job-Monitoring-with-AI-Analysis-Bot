@@ -237,7 +237,6 @@ def search_job(search_id, search_title):
             # --- DUPLICATE STOP CRITERION (Continuous Monitoring Mode) ---
             if not is_first_run and check_job_exists(gupy_id, search_title):
                 print(f"⛔ Job ID {gupy_id} ('{job_data.get('name')}') already exists for the term '{search_title}'. Immediate stop...")
-                time.sleep(WAIT_TIME)
                 return
 
             # --- PROCESSING AND SAVING ---
@@ -390,4 +389,5 @@ if __name__ == "__main__":
             search_job(search_id, search_title)
 
         print(f"\n💤 All clients processed. System waiting for {WAIT_TIME} seconds...")
+
         time.sleep(WAIT_TIME)
